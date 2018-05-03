@@ -15,7 +15,7 @@ class InvoiceController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return response()->json(['resultes' => $results]);
+        return response()->json(['results' => $results]);
     }
 
     public function create()
@@ -138,6 +138,6 @@ class InvoiceController extends Controller
         $invoice->items()->delete();
         $invoice->delete();
 
-        return response()->json(['deleted' =>  true]);
+        return response()->json(['deleted' => true]);
     }
 }
