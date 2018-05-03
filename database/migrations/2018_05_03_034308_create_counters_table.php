@@ -27,6 +27,9 @@ class CreateCountersTable extends Migration
             'prefix' => 'INV-',
             'value' => 10000
         ]);
+
+        DB::statement("ALTER TABLE `counters` comment'统计表'");
+
     }
 
     /**

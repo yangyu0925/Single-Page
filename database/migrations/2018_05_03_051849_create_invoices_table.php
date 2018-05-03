@@ -21,9 +21,9 @@ class CreateInvoicesTable extends Migration
             $table->date('due_date');
             $table->string('reference')->nullable();
             $table->text('terms_and_conditions');
-            $table->double('sub_total');
-            $table->double('discount')->default(0);
-            $table->double('total');
+            $table->double('sub_total')->comment('原价');
+            $table->double('discount')->default(0)->comment('折扣');
+            $table->double('total')->comment('现价');
             $table->timestamps();
         });
 
@@ -31,10 +31,14 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->integer('invoice_id')->unsigned();
             $table->integer('product_id')->unsigend();
-            $table->double('unit_price');
-            $table->integer('qty');
+            $table->double('unit_price')->comment('单价');
+            $table->integer('qty')->comment('数量');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE `invoices` comment'发票表'");
+        DB::statement("ALTER TABLE `invoice_items` comment'发票明细表'");
+
     }
 
     /**

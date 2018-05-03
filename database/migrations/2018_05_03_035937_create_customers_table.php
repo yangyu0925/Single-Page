@@ -21,6 +21,9 @@ class CreateCustomersTable extends Migration
             $table->text('address');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE `customers` comment'顾客表'");
+
     }
 
     /**

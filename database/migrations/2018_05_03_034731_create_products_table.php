@@ -17,9 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('item_code')->unique();
             $table->text('description');
-            $table->double('unit_price');
+            $table->double('unit_price')->comment('单价');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE `products` comment'产品表'");
     }
 
     /**
