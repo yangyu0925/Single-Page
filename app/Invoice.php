@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Helper\HasManyRelation;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
+    use HasManyRelation;
+
     protected $fillable = [
         'customer_id', 'date', 'due_date', 'discount',
         'terms_and_conditions'
