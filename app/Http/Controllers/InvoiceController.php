@@ -132,7 +132,7 @@ class InvoiceController extends Controller
         return response()->json(['saved' => true, 'id' => $invoice->id]);
     }
 
-    public function destory($id)
+    public function destroy($id)
     {
         $invoice = Invoice::findOrFail($id);
         $invoice->items()->delete();
